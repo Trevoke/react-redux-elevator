@@ -1,15 +1,24 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
-import styles from './app.css'
+import styles from './app.css';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import Store from './store';
+import App from './new-app';
 
-export default class App extends Component {
+const store = new Store({
+  log: []
+});
 
+class Root extends Component {
+  // Provider can only wrap a single element.
   render () {
-    return <p className={styles.paragraph}>Hello world</p>
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   }
-
 }
 
 if (process.env.NODE_ENV !== 'test')
-  render(<App />, document.getElementById('main'))
-
+  render(<Root />, document.getElementById('main'));

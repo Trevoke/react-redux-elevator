@@ -1,14 +1,14 @@
 /* eslint-disable no-var,object-shorthand,prefer-template */
 
-var path = require('path')
-var assign = require('lodash.assign')
-var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var path = require('path');
+var assign = require('lodash.assign');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var PATHS = {
   OUTPUT : path.join(__dirname, 'dist'),
   SOURCE : path.join(__dirname, 'src')
-}
+};
 
 var config = {
   output : {
@@ -52,11 +52,11 @@ var config = {
     require('postcss-normalize'),
     require('autoprefixer')
   ]
-}
+};
 
 var buildConfig = assign({}, config, {
   entry : [PATHS.SOURCE + '/app.jsx']
-})
+});
 
 var devConfig = assign({}, buildConfig, {
   entry : [
@@ -65,13 +65,14 @@ var devConfig = assign({}, buildConfig, {
   plugins : [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
-  ].concat(buildConfig.plugins)
-})
+  ].concat(buildConfig.plugins),
+  devtool: '#source-map'
+});
 
 module.exports = {
   buildConfig : buildConfig,
   devConfig : devConfig
-}
+};
 
 /* eslint-enable no-var,object-shorthand,prefer-template */
 
