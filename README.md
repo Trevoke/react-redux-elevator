@@ -1,5 +1,10 @@
-![TravisCI build status](https://travis-ci.org/stride-nyc/web-boilerplate-2016.svg)
+# Elevator react / redux
 
+Goal: to get a working, simple but useful toy project that uses best practices for react and redux.
+
+# Boilerplate code
+
+Using https://github.com/stride-nyc/web-boilerplate-2016
 A web boilerplate setup including the following technologies:
 
 - [Webpack](https://webpack.github.io)
