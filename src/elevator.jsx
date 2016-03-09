@@ -17,7 +17,7 @@ export default class Elevator extends Component {
   }
 
   goToFloor (floorNumber) {
-    console.log(floorNumber);
+
   }
 
   render () {

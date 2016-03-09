@@ -1,18 +1,17 @@
-import { ELEVATOR_SENT } from './actions';
+import { ELEVATOR_REQUEST } from './actions';
 
-export const reducer = (state = {
-  data: []
-}, action) => {
-  switch(action.type) {
+const allActions = [
+  ELEVATOR_REQUEST
+];
 
-    case ELEVATOR_SENT:
-      let foo = Object.assign({}, state, {
-        data: action.data
-      });
-      return foo;
-      break;
-    default:
-    return state || {};
-      break;
-  }
+export const reducer = (
+  state = { log: [] },
+  action
+) => {
+  if(!allActions.includes(action.type)) return state;
+  let logEntry = "Floor " + action.floor + " requested an elevator at " + action.timestamp;
+  return { log: [logEntry, ...state.log] };
+  //  switch(action.type) {
+  //  case ELEVATOR_REQUEST:
+
 };

@@ -5,9 +5,7 @@ import { Provider } from 'react-redux';
 import Store from './store';
 import App from './new-app';
 
-const store = new Store({
-  log: []
-});
+const store = new Store();
 
 class Root extends Component {
   // Provider can only wrap a single element.

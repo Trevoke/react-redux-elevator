@@ -1,28 +1,9 @@
-export const GET_STUFF = 'GET_STUFF';
-export const GOT_STUFF = 'GOT_STUFF';
-export const ELEVATOR_SENT = 'ELEVATOR_SENT';
+export const ELEVATOR_REQUEST = 'ELEVATOR_REQUEST';
 
-export function elevatorRequest(floor) {
-  console.log(floor);
-  return elevatorSent({floor: floor});
-}
-
-function elevatorSent(data) {
+export function elevatorRequest(floor, timestamp) {
   return {
-    type: ELEVATOR_SENT,
-    floor: data.floor
-  };
-}
-
-function getStuffRequest() {
-  return {
-    type: GET_STUFF
-  };
-}
-
-function gotStuff() {
-  return {
-    type: GOT_STUFF,
-    data: {key: true}
+    type: ELEVATOR_REQUEST,
+    floor: floor,
+    timestamp: timestamp
   };
 }

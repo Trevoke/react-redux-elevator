@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { elevatorRequest } from './actions';
+import { connect } from 'react-redux';
 
-export default class Floor extends Component {
+class Floor extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
   }
 
@@ -15,7 +15,7 @@ export default class Floor extends Component {
   }
 
   requestElevator() {
-    this.props.dispatch(elevatorRequest(this.props.initialLevel));
+    this.props.dispatch(elevatorRequest(this.props.initialLevel, new Date()));
   }
 
   render () {
@@ -27,3 +27,9 @@ export default class Floor extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps)(Floor);
